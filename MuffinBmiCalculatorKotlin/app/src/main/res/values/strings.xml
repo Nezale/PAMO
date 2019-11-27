@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">MuffinBmiCalculator</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="weight_title">Weight(KG)</string>
+    <string name="weight_text">Enter your weight</string>
+    <string name="height_title">Height(CM)</string>
+    <string name="height_text">Enter your height</string>
+    <string name="bmi_result">Bmi</string>
+    <string name="bmi_underweight">Underweight</string>
+    <string name="bmi_normalweight">Normalweight</string>
+    <string name="bmi_overweight">Overweight</string>
+    <string name="bmi_obese">Obese</string>
+    <string name="gender_female">Female</string>
+    <string name="gender_male">Male</string>
+    <string name="age_title">Age</string>
+    <string name="ppm_title">PPM Result</string>
+    <string name="verylow">Enter your age</string>
+    <string name="low">Enter your age</string>
+    <string name="medium">Enter your age</string>
+    <string name="high">Enter your age</string>
+    <string name="age_text">Enter your age</string>
+    <string name="back">Go back</string>
+    <string name="welcome">Welcome</string>
+    <string name="chart">Go to chart</string>
+    <string name="start_quiz">Start quiz</string>
+    <string name="win_quiz">You won</string>
+    <string name="lose_quiz">You lost</string>
+    <string name="exit_quiz">Exit quiz</string>
+    <string name="score">score</string>
+    <string name="rerun">rerun</string>
+
+</resources>
