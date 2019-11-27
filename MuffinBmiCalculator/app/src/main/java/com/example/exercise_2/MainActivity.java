@@ -1,5 +1,6 @@
 package com.example.exercise_2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.BottomNavigationView;
@@ -14,12 +15,17 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
+import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
     private LinearLayout bmilayout;
     private LinearLayout ppmLayout;
+    private LinearLayout homeLayout;
     private ConstraintLayout imageLayout;
+
+    private ArrayList<String> statistics = new ArrayList<>();
 
     private static final NumberFormat weightFormat = NumberFormat.getNumberInstance();
     private static final NumberFormat heightFormat = NumberFormat.getNumberInstance();
@@ -50,16 +56,19 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_home:
                     bmilayout.setVisibility(View.INVISIBLE);
                     ppmLayout.setVisibility(View.INVISIBLE);
-                    mTextMessage.setText("Siemanko witam w mojej kuchni");
+//                    mTextMessage.setText(LocalDate.now().toString());
+                    homeLayout.setVisibility(View.VISIBLE);
                     return true;
                 case R.id.navigation_dashboard:
                     bmilayout.setVisibility(View.VISIBLE);
                     ppmLayout.setVisibility(View.INVISIBLE);
+                    homeLayout.setVisibility(View.INVISIBLE);
                     mTextMessage.setText("");
                     return true;
                 case R.id.navigation_notifications:
                     bmilayout.setVisibility(View.INVISIBLE);
                     ppmLayout.setVisibility(View.VISIBLE);
+                    homeLayout.setVisibility(View.INVISIBLE);
                     mTextMessage.setText("");
                     return true;
             }
@@ -75,8 +84,25 @@ public class MainActivity extends AppCompatActivity {
         mTextMessage = findViewById(R.id.message);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
+            findViewById(R.id.chartButton).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    showChart();
+                }
+            });
+
+        findViewById(R.id.quizButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startQuiz();
+            }
+        });
+
+        homeLayout = findViewById(R.id.homeLayout);
         bmilayout = findViewById(R.id.bmiLayout);
         ppmLayout = findViewById(R.id.dietLayout);
+        bmilayout.setVisibility(View.INVISIBLE);
+        ppmLayout.setVisibility(View.INVISIBLE);
 
         final RadioGroup genderRadioGroup = (RadioGroup) findViewById(R.id.genderRadioGroup);
 
@@ -107,12 +133,14 @@ public class MainActivity extends AppCompatActivity {
 
         SeekBar ageSeekBar = (SeekBar) findViewById(R.id.ageSeekBar);
         ageSeekBar.setOnSeekBarChangeListener(ageSeekBarListener);
+
+
     }
 
 
 
     // calculate and display tip and total amounts
-    private void calculate() {
+    private double calculate() {
         // format height and display in weightTextView
         heightTextView.setText(heightFormat.format(height));
         weightTextView.setText(weightFormat.format(weight));
@@ -123,6 +151,7 @@ public class MainActivity extends AppCompatActivity {
         // display tip and total formatted as currency
         bmiTextView.setText(bmiFormat.format(BMI));
         showBmi(BMI);
+        return BMI;
     }
 
     private float calculatePPM() {
@@ -228,6 +257,18 @@ public class MainActivity extends AppCompatActivity {
             showBmiTextView.setText(R.string.bmi_overweight);
         else
             showBmiTextView.setText(R.string.bmi_obese);
+    }
+
+    private void startQuiz() {
+        Intent intent = new Intent(this, QuizActivity.class);
+        startActivity(intent);
+    }
+
+    private void showChart() {
+        statistics.add(String.valueOf(calculate()));
+        Intent intent = new Intent(this, ChartActivity.class);
+        intent.putStringArrayListExtra("statistics", statistics);
+        startActivity(intent);
     }
 
 

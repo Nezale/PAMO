@@ -21,4 +21,14 @@
     <string name="medium">Enter your age</string>
     <string name="high">Enter your age</string>
     <string name="age_text">Enter your age</string>
+    <string name="back">Go back</string>
+    <string name="welcome">Welcome</string>
+    <string name="chart">Go to chart</string>
+    <string name="start_quiz">Start quiz</string>
+    <string name="win_quiz">You won</string>
+    <string name="lose_quiz">You lost</string>
+    <string name="exit_quiz">Exit quiz</string>
+    <string name="score">score</string>
+    <string name="rerun">rerun</string>
+
 </resources>

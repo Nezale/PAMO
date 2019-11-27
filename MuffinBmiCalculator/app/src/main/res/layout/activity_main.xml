@@ -153,6 +153,44 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/homeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/nav_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/nav_view"
+        tools:visibility="visible">
+
+        <TextView
+            android:id="@+id/welcomeTextView"
+            android:layout_width="match_parent"
+            android:layout_height="251dp"
+            android:gravity="center"
+            android:text="@string/welcome"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            tools:visibility="visible" />
+
+        <Button
+            android:id="@+id/quizButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/start_quiz" />
+
+        <Button
+            android:id="@+id/chartButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="@string/chart" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/dietLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -235,6 +273,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:srcCompat="@drawable/high" />
-        </android.support.constraint.ConstraintLayout>></LinearLayout>
+        </android.support.constraint.ConstraintLayout>
+        >
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
